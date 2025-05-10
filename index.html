@@ -1,2 +1,174 @@
-# FBlx
-this is for template blogger
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1" name="viewport" />
+  <title>FBlx Blogger Template</title>
+  <!-- ================== HTML ================== -->
+
+  <header class="py-8 text-center fade-in delay-1">
+    <h1 class="neon-text text-6xl sm:text-7xl select-none">FBlx</h1>
+  </header>
+
+  <!-- Ad Box 1 -->
+  <section aria-label="Advertisement" class="ad-container fade-in delay-2">
+    <div class="ad-frame" id="ad-top">
+      <iframe
+        data-aa="2393854"
+        height="100"
+        loading="lazy"
+        scrolling="no"
+        src="//ad.a-ads.com/2393854?size=320x100"
+        style="border:0; padding:0; overflow:hidden; background-color: transparent;"
+        title="Mobile Advertisement 320 by 100"
+        width="320"
+      ></iframe>
+      <a
+        href="https://aads.com/campaigns/new/?source_id=2393854&source_type=ad_unit&partner=2393854"
+        rel="noopener noreferrer"
+        style="display: block; text-align: right; font-size: 12px; color: #60a5fa;"
+        target="_blank"
+        >Advertise here</a
+      >
+    </div>
+  </section>
+
+  <!-- Search Box -->
+  <section class="w-full max-w-md mx-auto px-4 fade-in delay-3">
+    <form class="flex" role="search">
+      <input
+        aria-label="Search blog posts"
+        class="w-full rounded-l-md px-4 py-2 text-gray-900"
+        name="q"
+        placeholder="Search blog posts..."
+        type="search"
+      />
+      <button
+        aria-label="Submit search"
+        class="bg-blue-500 hover:bg-blue-600 text-white px-4 rounded-r-md transition"
+        type="submit"
+      >
+        <i class="fas fa-search"></i>
+      </button>
+    </form>
+  </section>
+
+  <!-- Blog Posts Container -->
+  <main class="flex-grow max-w-5xl mx-auto px-4 mt-10 space-y-10 fade-in delay-4" aria-label="Blog posts listing">
+    <!-- Blogger dynamic post loop placeholder -->
+    <b:section class="posts" id="posts" maxwidgets="1" showaddelement="no">
+      <b:widget id="Blog1" locked="true" title="Blog Posts" type="Blog" visible="true">
+        <b:includable id="main">
+          <b:loop values="data:posts" var="post">
+            <article
+              class="post-item flex flex-col items-center bg-gray-800 rounded-lg p-4 cursor-pointer hover:bg-gray-700 transition"
+              role="article"
+              tabindex="0"
+            >
+              <a
+                expr:href="post.url"
+                class="neon-border w-full max-w-xs p-2 mb-3 block rounded-sm"
+                aria-label="Read post: <data:post.title/>"
+              >
+                <h2 class="text-white text-center font-semibold text-lg hover:text-blue-400 transition">
+                  <data:post.title/>
+                </h2>
+              </a>
+              <a
+                expr:href="post.url"
+                class="neon-border w-full max-w-xs p-1 block rounded-sm"
+                aria-label="Thumbnail image for post titled <data:post.title/>"
+                tabindex="-1"
+              >
+                <img
+                  alt="Thumbnail image for post titled <data:post.title/>"
+                  expr:src="post.thumbnail"
+                  class="w-full h-40 object-cover rounded-sm"
+                  loading="lazy"
+                />
+              </a>
+            </article>
+            <!-- Responsive Ad Box between posts -->
+            <div class="ad-container">
+              <div class="ad-frame" style="width:100%; max-width:728px;">
+                <iframe
+                  id="ad-middle-iframe"
+                  data-aa="2393860"
+                  height="90"
+                  loading="lazy"
+                  scrolling="no"
+                  src="//ad.a-ads.com/2393860?size=728x90"
+                  style="border:0; padding:0; overflow:hidden; background-color: transparent; width: 100%; max-width: 728px; height: 90px;"
+                  title="Responsive Advertisement"
+                  width="728"
+                ></iframe>
+                <a
+                  href="https://aads.com/campaigns/new/?source_id=2393860&source_type=ad_unit&partner=2393860"
+                  rel="noopener noreferrer"
+                  style="display: block; text-align: right; font-size: 12px; color: #60a5fa;"
+                  target="_blank"
+                  >Advertise here</a
+                >
+              </div>
+            </div>
+          </b:loop>
+        </b:includable>
+      </b:widget>
+    </b:section>
+  </main>
+
+  <!-- Load More Button above info boxes -->
+  <div class="flex justify-center mt-12 fade-in delay-6 max-w-5xl mx-auto px-4">
+    <button
+      aria-label="Load more blog posts"
+      class="btn-load bg-blue-500 text-white font-semibold px-6 py-3 rounded-md shadow-md focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 transition"
+      type="button"
+    >
+      Load More
+    </button>
+  </div>
+
+  <!-- Info Boxes -->
+  <section
+    aria-label="Information boxes"
+    class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8 fade-in delay-7 max-w-5xl mx-auto px-4"
+  >
+    <div aria-label="How to use the script" class="bg-gray-800 rounded-lg p-6 shadow-lg" tabindex="0">
+      <h3 class="text-xl font-semibold text-white mb-3">How to Use the Script</h3>
+      <p class="text-gray-300 leading-relaxed">
+        This script provides a clean and responsive Blogger homepage layout. You can customize the posts, ads, and info boxes by editing the HTML structure and replacing placeholder content with your own blog data. The layout adapts seamlessly to all screen sizes.
+      </p>
+    </div>
+    <div aria-label="How to run it in an executor" class="bg-gray-800 rounded-lg p-6 shadow-lg" tabindex="0">
+      <h3 class="text-xl font-semibold text-white mb-3">How to Run It in an Executor</h3>
+      <p class="text-gray-300 leading-relaxed">
+        To run this template in a Blogger environment or any HTML executor, simply copy the entire code into your Blogger template editor or your HTML file. Ensure you have internet access for Tailwind CSS, Google Fonts, and Font Awesome. The ads will load automatically if the ad network is accessible.
+      </p>
+    </div>
+  </section>
+
+  <!-- Ad Box 3 -->
+  <section aria-label="Advertisement" class="ad-container mt-12 fade-in delay-7">
+    <div class="ad-frame" id="ad-bottom">
+      <iframe
+        data-aa="2393854"
+        height="100"
+        loading="lazy"
+        scrolling="no"
+        src="//ad.a-ads.com/2393854?size=320x100"
+        style="border:0; padding:0; overflow:hidden; background-color: transparent;"
+        title="Mobile Advertisement 320 by 100"
+        width="320"
+      ></iframe>
+      <a
+        href="https://aads.com/campaigns/new/?source_id=2393854&source_type=ad_unit&partner=2393854"
+        rel="noopener noreferrer"
+        style="display: block; text-align: right; font-size: 12px; color: #60a5fa;"
+        target="_blank"
+        >Advertise here</a
+      >
+    </div>
+  </section>
+
+  <footer class="text-center py-6 text-gray-400 text-sm select-none">
+    © 2024 FBlx. All rights reserved.
+  </footer>
