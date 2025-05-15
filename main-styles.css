@@ -1,254 +1,132 @@
-html,
-body {
-  background-color: #000000;
-  background-image:
-    linear-gradient(rgba(155, 0, 255, 0.15) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(155, 0, 255, 0.15) 1px, transparent 1px);
-  background-size: 40px 40px;
-  font-family: 'Rajdhani', 'Oxanium', 'Orbitron', sans-serif;
-  color: white;
-  min-height: 100vh;
-  scroll-behavior: smooth;
-}
-.neon-purple {
-  color: #9b00ff;
-  text-shadow:
-    0 0 6px #9b00ff,
-    0 0 12px #9b00ff,
-    0 0 24px #9b00ff,
-    0 0 48px #d600ff;
-  font-weight: 900;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  user-select: none;
-}
-.neon-shadow {
-  text-shadow:
-    0 0 4px #9b00ff,
-    0 0 8px #9b00ff,
-    0 0 16px #d600ff,
-    0 0 32px #d600ff;
-}
-.fade-in {
-  animation: fadeIn 1s ease forwards;
-  opacity: 0;
-}
-@keyframes fadeIn {
-  to {
-    opacity: 1;
-  }
-}
-/* Hover glow effect for interactive elements */
-.hover-glow:hover {
-  text-shadow:
-    0 0 8px #9b00ff,
-    0 0 20px #d600ff,
-    0 0 30px #d600ff;
-  cursor: pointer;
-  transition: text-shadow 0.3s ease;
-}
-.hover-glow-img:hover {
-  filter: drop-shadow(0 0 8px #d600ff);
-  transform: scale(1.07);
-  transition: transform 0.3s ease, filter 0.3s ease;
-  cursor: pointer;
-  border-radius: 0.5rem;
-}
-/* Ads box label styling */
-.ads-label {
-  position: absolute;
-  top: 0.25rem;
-  left: 0.5rem;
-  background: linear-gradient(90deg, #9b00ff, #d600ff);
-  color: white;
-  font-size: 0.65rem;
-  font-weight: 700;
-  padding: 0.15rem 0.5rem;
-  border-bottom-right-radius: 0.375rem;
-  font-family: 'Rajdhani', sans-serif;
-  user-select: none;
-  pointer-events: none;
-  z-index: 10;
-  text-transform: lowercase;
-  letter-spacing: 0.1em;
-  box-shadow:
-    0 0 6px #d600ff,
-    0 0 12px #9b00ff;
-}
-/* Header styling with glitch effect */
-.glitch {
-  position: relative;
-  color: #9b00ff;
-  font-size: 4.5rem;
-  font-weight: 900;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  user-select: none;
-  animation: flicker 3s infinite;
-  text-shadow:
-    0 0 6px #9b00ff,
-    0 0 12px #d600ff,
-    0 0 24px #d600ff,
-    0 0 48px #d600ff;
-}
-.glitch::before,
-.glitch::after {
-  content: attr(data-text);
-  position: absolute;
-  left: 0;
-  right: 0;
-  opacity: 0.8;
-  clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%);
-}
-.glitch::before {
-  animation: glitchTop 2s infinite linear alternate-reverse;
-  color: #d600ff;
-  z-index: -1;
-  top: -2px;
-  text-shadow: -2px 0 #9b00ff;
-}
-.glitch::after {
-  animation: glitchBottom 2s infinite linear alternate-reverse;
-  color: #9b00ff;
-  z-index: -1;
-  top: 2px;
-  clip-path: polygon(0 55%, 100% 55%, 100% 100%, 0 100%);
-  text-shadow: 2px 0 #d600ff;
-}
-@keyframes glitchTop {
-  0% {
-    transform: translate(0);
-  }
-  20% {
-    transform: translate(-2px, -2px);
-  }
-  40% {
-    transform: translate(-2px, 2px);
-  }
-  60% {
-    transform: translate(2px, -2px);
-  }
-  80% {
-    transform: translate(2px, 2px);
-  }
-  100% {
-    transform: translate(0);
-  }
-}
-@keyframes glitchBottom {
-  0% {
-    transform: translate(0);
-  }
-  20% {
-    transform: translate(2px, 2px);
-  }
-  40% {
-    transform: translate(2px, -2px);
-  }
-  60% {
-    transform: translate(-2px, 2px);
-  }
-  80% {
-    transform: translate(-2px, -2px);
-  }
-  100% {
-    transform: translate(0);
-  }
-}
-@keyframes flicker {
-  0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
-    opacity: 1;
-  }
-  20%, 22%, 24%, 55% {
-    opacity: 0.4;
-  }
-}
-/* Responsive adjustments */
-@media (max-width: 640px) {
-  .glitch {
-    font-size: 3rem;
-    letter-spacing: 0.15em;
-  }
-}
-/* Modal styles */
-#subscribe-modal {
-  background-color: rgba(0, 0, 0, 0.85);
-  backdrop-filter: blur(6px);
-  position: fixed;
-  inset: 0;
-  display: none;
-  align-items: center;
-  justify-content: center;
-  z-index: 50;
-}
-#subscribe-modal.active {
-  display: flex;
-}
-#subscribe-modal .modal-content {
-  background: #1a002a;
-  border: 2px solid #9b00ff;
-  border-radius: 1rem;
-  padding: 2rem;
-  max-width: 400px;
-  width: 90%;
-  box-shadow:
-    0 0 10px #d600ff,
-    0 0 20px #9b00ff;
-  text-align: center;
-  color: white;
-  font-family: 'Rajdhani', sans-serif;
-  position: relative;
-}
-#subscribe-modal .modal-content h2 {
-  font-size: 1.75rem;
-  margin-bottom: 1rem;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: #d600ff;
-  text-shadow:
-    0 0 6px #d600ff,
-    0 0 12px #9b00ff;
-}
-#subscribe-modal .modal-content p {
-  margin-bottom: 1.5rem;
-  font-size: 1rem;
-  color: #ccc;
-}
-#subscribe-modal .modal-content a {
-  display: inline-block;
-  background: linear-gradient(90deg, #9b00ff, #d600ff);
-  color: white;
-  font-weight: 700;
-  padding: 0.75rem 1.5rem;
-  border-radius: 9999px;
-  text-decoration: none;
-  font-size: 1.1rem;
-  box-shadow:
-    0 0 8px #d600ff,
-    0 0 16px #9b00ff;
-  transition: background 0.3s ease;
-}
-#subscribe-modal .modal-content a:hover,
-#subscribe-modal .modal-content a:focus {
-  background: linear-gradient(90deg, #d600ff, #9b00ff);
-  outline: none;
-  box-shadow:
-    0 0 12px #d600ff,
-    0 0 24px #9b00ff;
-}
-#subscribe-modal .close-btn {
-  position: absolute;
-  top: 0.5rem;
-  right: 0.75rem;
-  background: transparent;
-  border: none;
-  color: #d600ff;
-  font-size: 1.5rem;
-  cursor: pointer;
-  transition: color 0.3s ease;
-}
-#subscribe-modal .close-btn:hover,
-#subscribe-modal .close-btn:focus {
-  color: #9b00ff;
-  outline: none;
-}
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap');
+
+    /* Neon purple color */
+    :root {
+      --neon-purple: #9d00ff;
+      --neon-glow: #b14fff;
+    }
+
+    body {
+      font-family: 'Orbitron', sans-serif;
+      background-color: #000000;
+      background-image:
+        linear-gradient(rgba(157,0,255,0.15) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(157,0,255,0.15) 1px, transparent 1px);
+      background-size: 40px 40px;
+    }
+
+    /* Fade-in animation */
+    .fade-in {
+      animation: fadeIn 1s ease forwards;
+      opacity: 0;
+    }
+    .fade-in.delay-200 {
+      animation-delay: 0.2s;
+    }
+    .fade-in.delay-400 {
+      animation-delay: 0.4s;
+    }
+    .fade-in.delay-600 {
+      animation-delay: 0.6s;
+    }
+    .fade-in.delay-800 {
+      animation-delay: 0.8s;
+    }
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+      }
+    }
+
+    /* Neon glow hover effect */
+    .neon-hover:hover {
+      filter: drop-shadow(0 0 6px var(--neon-purple)) drop-shadow(0 0 10px var(--neon-glow));
+      transition: filter 0.3s ease;
+    }
+
+    /* Search box glow on focus */
+    input[type="search"]:focus {
+      outline: none;
+      box-shadow:
+        0 0 8px var(--neon-purple),
+        0 0 20px var(--neon-glow);
+      border-color: var(--neon-purple);
+      transition: box-shadow 0.3s ease, border-color 0.3s ease;
+    }
+
+    /* Modern subscribe popup styles */
+    #subscribe-popup {
+      position: fixed;
+      top: -100%;
+      left: 50%;
+      transform: translateX(-50%);
+      background: linear-gradient(135deg, #9d00ff, #b14fff);
+      border-radius: 1rem;
+      padding: 1.25rem 1.75rem;
+      width: 320px;
+      color: #fff;
+      box-shadow: 0 0 30px #b14fff;
+      z-index: 9999;
+      transition: top 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+      font-family: 'Orbitron', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 0.75rem;
+    }
+    #subscribe-popup.show {
+      top: 2rem;
+    }
+    #subscribe-popup .close-btn {
+      position: absolute;
+      top: 0.4rem;
+      right: 0.6rem;
+      background: transparent;
+      border: none;
+      color: #fff;
+      font-size: 1.5rem;
+      cursor: pointer;
+      transition: color 0.3s ease;
+      line-height: 1;
+    }
+    #subscribe-popup .close-btn:hover {
+      color: #e0b3ff;
+    }
+    #subscribe-popup h2 {
+      font-size: 1.5rem;
+      font-weight: 900;
+      text-shadow: 0 0 10px #fff;
+      letter-spacing: 0.05em;
+      margin: 0;
+    }
+    #subscribe-popup p {
+      font-size: 0.9rem;
+      color: #e6d9ffcc;
+      max-width: 280px;
+      line-height: 1.4;
+      text-shadow: 0 0 6px #a366ff88;
+      margin: 0;
+    }
+    #subscribe-popup a.subscribe-link {
+      background: #fff;
+      color: #9d00ff;
+      font-weight: 900;
+      padding: 0.5rem 2rem;
+      border-radius: 9999px;
+      text-decoration: none;
+      font-size: 1rem;
+      box-shadow: 0 0 15px #fff;
+      transition: background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+      user-select: none;
+    }
+    #subscribe-popup a.subscribe-link:hover,
+    #subscribe-popup a.subscribe-link:focus {
+      background: #e0b3ff;
+      color: #5a0080;
+      box-shadow: 0 0 25px #e0b3ff;
+      outline: none;
+    }
+  </style>
